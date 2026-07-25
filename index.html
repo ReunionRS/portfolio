@@ -1,254 +1,343 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Портфолио</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Портфолио Ильи Смирнова</title>
+<meta name="description" content="Портфолио Ильи Смирнова: кейсы сайтов, CRM, Flutter-приложений, Unity и Virtual Production." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <div class="scroll-button">
-    <a href="#home"><i class="fas fa-arrow-up"></i></a>
+
+<!-- Loader -->
+<div class="loader" id="loader"><span>PORTFOLIO</span></div>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="header__inner">
+    <a href="#home" class="logo">
+      <span class="logo__main">ПОРТФОЛИО</span>
+      <span class="logo__sub">Илья Смирнов</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#work" data-i18n="nav_work">Портфолио</a>
+      <a href="#about" data-i18n="nav_about">О себе</a>
+      <a href="#clients" data-i18n="nav_clients">Клиенты</a>
+      <a href="#services" data-i18n="nav_services">Услуги</a>
+      <a href="#contact" data-i18n="nav_contact">Контакты</a>
+    </nav>
+    <div class="header__actions">
+      <button class="lang-toggle" id="langToggle" aria-label="Переключить язык">
+        <span class="lang-toggle__active">RU</span> / <span class="lang-toggle__inactive">EN</span>
+      </button>
+      <button class="grid-btn" id="menuBtn" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
-  <nav>
-    <div class="navbar">
-      <div class="logo"><a href="https://reunionrs.github.io/portfolio/">Портфолио</a></div>
-      <ul class="menu">
-        <li><a href="#home">Главная</a></li>
-        <li><a href="#about">Обо мне</a></li>
-        <li><a href="#clients">Клиенты</a></li>
-        <li><a href="#skills">Навыки</a></li>
-        <li><a href="#services">Услуги</a></li>
-        <li><a href="#contact">Контакты</a></li>
-        <div class="cancel-btn">
-          <i class="fas fa-times"></i>
-        </div>
-      </ul>
-      <div class="media-icons">
-        <a href="https://www.youtube.com/@StarStudioMineSerials"><i class="fab fa-youtube"></i></a>
-        <a href="https://t.me/ReunionRS"><i class="fab fa-telegram"></i></a>
-        <a href="https://github.com/ReunionRS"><i class="fab fa-github"></i></a>
-        <a href="https://vk.com/ilusha_smirnofff"><i class="fab fa-vk"></i></a>
-      </div>
-    </div>
-    <div class="menu-btn">
-      <i class="fas fa-bars"></i>
-    </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-overlay__close" id="menuClose" aria-label="Закрыть меню">&times;</button>
+  <nav class="menu-overlay__nav">
+    <a href="#work" data-i18n="nav_work">Портфолио</a>
+    <a href="#about" data-i18n="nav_about">О себе</a>
+    <a href="#clients" data-i18n="nav_clients">Клиенты</a>
+    <a href="#services" data-i18n="nav_services">Услуги</a>
+    <a href="#contact" data-i18n="nav_contact">Контакты</a>
   </nav>
-  
-  <section class="home" id="home">
-    <div class="home-content">
-      <div class="text">
-        <div class="text-one">Привет</div>
-        <div class="text-two">Меня зовут Илья</div>
-        <div class="text-three">CGI/Веб-Разработчик</div>
-        <div class="text-four">Из Ижевска</div>
+  <div class="menu-overlay__socials">
+    <a href="https://t.me/ReunionRS" target="_blank" rel="noopener"><i class="fab fa-telegram"></i></a>
+    <a href="https://github.com/ReunionRS" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/%D0%B8%D0%BB%D1%8C%D1%8F-%D1%81%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B2-ba7107424/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__inner">
+      <div class="hero__text" data-reveal>
+        <p class="eyebrow" data-i18n="hero_eyebrow">Привет, меня зовут</p>
+        <h1 class="hero__title" data-i18n="hero_title">Илья</h1>
+
+        <ul class="hero__list">
+          <li>CGI &amp; VFX</li>
+          <li data-i18n="hero_spec2">Разработка игр</li>
+          <li data-i18n="hero_spec3">Веб-разработка</li>
+          <li data-i18n="hero_spec4">ИИ решения</li>
+          <li><strong data-i18n="hero_spec5">Продуктовый дизайн</strong></li>
+        </ul>
+
+        <p class="hero__desc" data-i18n="hero_desc">Создаю цифровые продукты и графику, которые вдохновляют и приносят результат.</p>
+
+        <div class="hero__btns">
+          <a href="#work" class="btn"><span data-i18n="hero_btn">Смотреть Портфолио</span> <i class="fa-solid fa-arrow-up-right"></i></a>
+          <a href="https://drive.google.com/drive/folders/1KHWkOZnAHzcs7ECG-6JB8nxzRbNf40qi" target="_blank" rel="noopener" class="btn btn--secondary"><i class="fa-brands fa-google-drive"></i> <span data-i18n="hero_gdrive">Google Drive Портфолио</span></a>
+        </div>
       </div>
-      <div class="button">
-        <button><a href="https://t.me/ReunionRS">Связаться со мной</a></button>
+
+      <div class="hero__media" data-reveal>
+        <img src="images/about.png" alt="Илья, цифровой разработчик" />
       </div>
     </div>
+
+    <a href="#about" class="scroll-cue">
+      <i class="fa-solid fa-arrow-down"></i> <span data-i18n="scroll_down">Прокрутите вниз</span>
+    </a>
   </section>
 
+  <!-- ABOUT -->
   <section class="about" id="about">
-    <div class="content">
-      <div class="title"><span>Обо мне</span></div>
-      <div class="about-details">
-        <div class="left">
-          <img src="images/about.png" alt="about_pic" />
-        </div>
-        <div class="right">
-          <div class="topic"><h1>Веб-разработчик/CGI-Специалист</h1></div>
-          <p>
-            Меня зовут Илья, мне 21 год. Я - энтузиаст в сфере веб-разработки и CGI, закончил Международный
-            Восточно-Европейский колледж по специальности IT. В данный момент активно развиваюсь в области
-            веб-программирования и обучения нейронных сетей. В моём портфолио есть проекты, где я демонстрирую
-            навыки веб-разработки, а также опыт с CGI-технологиями. Я постоянно учусь и ищу новые вызовы
-            в цифровом мире!
-            Ознакомиться с моим резюме можете по ссылке ниже!
-          </p>
-          <div class="button">
-            <button>
-              <a href="Files/Rezyume_-_Smirno5v_Ilya%20(1).docx"> <i class='fa fa-file'></i> Скачать резюме
-            </a></button>
-            <button>
-              <a href="https://github.com/ReunionRS"><i class="fab fa-github"></i> Github Портфолио
-              </a></button>
-            <button>
-              <a href="https://drive.google.com/drive/folders/1KHWkOZnAHzcs7ECG-6JB8nxzRbNf40qi"><i class='fa fa-folder'></i> CGI/Photoshop
-              </a></button>
-          </div>
-        </div>
+    <div class="about__inner">
+      <div class="about__left" data-reveal>
+        <p class="eyebrow" data-i18n="about_eyebrow">О себе</p>
+        <h2 class="section-title" data-i18n="about_title">Я создаю<br>цифровые<br>продукты.</h2>
+        <p class="about__lead" data-i18n="about_lead">От кинематографичного VFX и компьютерной графики до мобильных приложений и ИИ-решений.</p>
+      </div>
+
+      <div class="about__image" data-reveal>
+        <img src="images/about.png" alt="Илья за работой" />
+      </div>
+
+      <div class="about__right" data-reveal>
+        <p class="eyebrow" data-i18n="about_hello">Привет</p>
+        <h3 class="about__name" data-i18n="about_name">Я Илья Смирнов.</h3>
+        <p data-i18n="about_role">Креативный разработчик и основатель Reunion Production.</p>
+        <p data-i18n="about_text">Я объединяю креатив и технологии для создания глубоких цифровых продуктов — от веб-платформ и игр до CGI, интерактивного реквизита и ИИ-инструментов.</p>
+        <a href="Files/Rezyume_-_Smirno5v_Ilya (1).docx" class="link-arrow"><span data-i18n="about_resume">Скачать Резюме</span> <i class="fa-solid fa-file-arrow-down"></i></a>
       </div>
     </div>
   </section>
 
-  <!-- Секция клиентов -->
+  <!-- PORTFOLIO SECTION -->
+  <section class="work" id="work">
+    <div class="work__head" data-reveal>
+      <div>
+        <p class="eyebrow" data-i18n="work_eyebrow">Проекты и кейсы</p>
+        <h2 class="section-title" data-i18n="work_title">Портфолио</h2>
+      </div>
+      <a href="https://github.com/ReunionRS" target="_blank" rel="noopener" class="link-arrow"><span data-i18n="work_view_all">Все проекты на GitHub</span> <i class="fa-solid fa-arrow-up-right"></i></a>
+    </div>
+
+    <div class="projects">
+
+      <!-- Case 1: VPRussia -->
+      <article class="project" data-reveal>
+        <div class="project__info">
+          <div class="project__meta">
+            <span class="project__num">01</span>
+            <span class="project__year">2025</span>
+          </div>
+          <h3 class="project__title" data-i18n="p1_title">VPRussia</h3>
+          <p class="project__subtitle" data-i18n="p1_sub">Технологический портал о виртуальном продакшене</p>
+          <p class="project__desc" data-i18n="p1_desc">Технологический портал о виртуальном продакшене: новости, каталог, статьи, образовательные материалы и биржа.</p>
+          <div class="project__tags"><span>Web</span><span>Virtual Production</span><span>Portal</span><span>Контент</span></div>
+        </div>
+        <div class="project__media">
+          <img src="images/cases/vprussia.webp" alt="Скриншот сайта VPRussia" />
+        </div>
+      </article>
+
+      <!-- Case 2: 28Q Videostudio -->
+      <article class="project" data-reveal>
+        <div class="project__info">
+          <div class="project__meta">
+            <span class="project__num">02</span>
+            <span class="project__year">2025</span>
+          </div>
+          <h3 class="project__title" data-i18n="p2_title">28Q Videostudio</h3>
+          <p class="project__subtitle" data-i18n="p2_sub">Сайт видеостудии с позиционированием и портфолио</p>
+          <p class="project__desc" data-i18n="p2_desc">Сайт видеостудии с позиционированием, услугами, примерами работ, контактами и выразительным первым экраном.</p>
+          <div class="project__tags"><span>Web</span><span>UI</span><span>Брендинг</span><span>Медиа</span></div>
+        </div>
+        <div class="project__media">
+          <img src="images/cases/28q.webp" alt="Скриншот сайта 28Q Videostudio" />
+        </div>
+      </article>
+
+      <!-- Case 3: Lumen Group -->
+      <article class="project" data-reveal>
+        <div class="project__info">
+          <div class="project__meta">
+            <span class="project__num">03</span>
+            <span class="project__year">2025</span>
+          </div>
+          <h3 class="project__title" data-i18n="p3_title">Lumen Group</h3>
+          <p class="project__subtitle" data-i18n="p3_sub">Fullstack-приложение на Flutter и Node.js</p>
+          <p class="project__desc" data-i18n="p3_desc">Fullstack-приложение: Flutter-клиент и Node.js/Express API для управления пользовательскими сценариями.</p>
+          <div class="project__tags"><span>Flutter</span><span>Node.js</span><span>CRM</span><span>API</span></div>
+        </div>
+        <div class="project__media">
+          <img src="images/cases/lumen.webp" alt="Скриншот приложения Lumen Group" />
+        </div>
+      </article>
+
+      <!-- Case 4: MartStroy CRM -->
+      <article class="project" data-reveal>
+        <div class="project__info">
+          <div class="project__meta">
+            <span class="project__num">04</span>
+            <span class="project__year">2025</span>
+          </div>
+          <h3 class="project__title" data-i18n="p4_title">МартСтрой CRM</h3>
+          <p class="project__subtitle" data-i18n="p4_sub">Flutter CRM для строительной команды</p>
+          <p class="project__desc" data-i18n="p4_desc">Flutter CRM для строительной команды: авторизация, рабочий интерфейс и база для внутренних бизнес-процессов.</p>
+          <div class="project__tags"><span>Flutter</span><span>CRM</span><span>Система</span><span>Внутренний интерфейс</span></div>
+        </div>
+        <div class="project__media">
+          <img src="images/cases/martstroy-crm.webp" alt="Скриншот CRM МартСтрой" />
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CLIENTS & TRUST -->
   <section class="clients" id="clients">
-    <div class="content">
-      <div class="title"><span>Клиенты</span></div>
-      <p class="section-description">
-        Компании, которые доверились мне
-      </p>
-      
-      <div class="clients-carousel">
-        <div class="clients-track">
-          <img src="images/logo-company/28q.png" alt="28Q" data-company="28q">
-          <img src="images/logo-company/VPrussia.png" alt="VPrussia" data-company="vprussia">
-          <img src="images/logo-company/Reunion.jpg" alt="Reunion Production" data-company="reunion">
-          <img src="images/logo-company/Reputatcia.png" alt="Репутация" data-company="reputation">
-          <img src="images/logo-company/NeAgentstvo.jpg" alt="НеРекламное Агентство" data-company="notagency">
-          <img src="images/logo-company/28q.png" alt="28Q" data-company="28q">
-          <img src="images/logo-company/VPrussia.png" alt="VPrussia" data-company="vprussia">
-          <img src="images/logo-company/Reunion.jpg" alt="Reunion Production" data-company="reunion">
-          <img src="images/logo-company/Reputatcia.png" alt="Репутация" data-company="reputation">
-          <img src="images/logo-company/NeAgentstvo.jpg" alt="НеРекламное Агентство" data-company="notagency">
-          <img src="images/logo-company/28q.png" alt="28Q" data-company="28q">
-          <img src="images/logo-company/VPrussia.png" alt="VPrussia" data-company="vprussia">
-          <img src="images/logo-company/Reunion.jpg" alt="Reunion Production" data-company="reunion">
-          <img src="images/logo-company/Reputatcia.png" alt="Репутация" data-company="reputation">
-          <img src="images/logo-company/NeAgentstvo.jpg" alt="НеРекламное Агентство" data-company="notagency">
-        </div>
+    <p class="eyebrow eyebrow--center" data-reveal data-i18n="clients_eyebrow">Опыт взаимодействия и доверие</p>
+    <h2 class="section-title section-title--center" data-reveal data-i18n="clients_title">Компании, которые мне доверились</h2>
+
+    <div class="clients-carousel" data-reveal>
+      <div class="clients-track">
+        <div class="client-logo"><img src="images/logo-company/28q.png" alt="28Q" /></div>
+        <div class="client-logo"><img src="images/logo-company/VPrussia.png" alt="VPRussia" /></div>
+        <div class="client-logo"><img src="images/logo-company/Reunion.jpg" alt="Reunion Production" /></div>
+        <div class="client-logo"><img src="images/logo-company/Reputatcia.png" alt="Репутация" /></div>
+        <div class="client-logo"><img src="images/logo-company/NeAgentstvo.jpg" alt="НеРекламное Агентство" /></div>
+        <div class="client-logo"><img src="images/logo-company/Lumengroup.png" alt="Lumen Group" /></div>
+        <div class="client-logo"><img src="images/logo-company/Mart.png" alt="MartStroy" /></div>
+        <div class="client-logo"><img src="images/logo-company/Varya.webp" alt="Varya" /></div>
+        <div class="client-logo"><img src="images/logo-company/28q.png" alt="28Q" /></div>
+        <div class="client-logo"><img src="images/logo-company/VPrussia.png" alt="VPRussia" /></div>
+        <div class="client-logo"><img src="images/logo-company/Reunion.jpg" alt="Reunion Production" /></div>
+        <div class="client-logo"><img src="images/logo-company/Reputatcia.png" alt="Репутация" /></div>
+        <div class="client-logo"><img src="images/logo-company/NeAgentstvo.jpg" alt="НеРекламное Агентство" /></div>
+        <div class="client-logo"><img src="images/logo-company/Lumengroup.png" alt="Lumen Group" /></div>
+        <div class="client-logo"><img src="images/logo-company/Mart.png" alt="MartStroy" /></div>
+        <div class="client-logo"><img src="images/logo-company/Varya.webp" alt="Varya" /></div>
       </div>
     </div>
   </section>
 
-  <!-- Модальные окна -->
-  <div id="modal-overlay" class="modal-overlay">
-    <div class="modal-container">
-      <button class="modal-close">&times;</button>
-      <div class="modal-content">
-        <div class="modal-header">
-          <img class="modal-logo" src="" alt="">
-          <h2 class="modal-title"></h2>
-        </div>
-        <div class="modal-body">
-          <p class="modal-description"></p>
-          <div class="modal-services">
-            <h3>Услуги:</h3>
-            <ul class="services-list"></ul>
-          </div>
-          <div class="modal-project">
-            <h3>Мой проект:</h3>
-            <p class="project-description"></p>
-          </div>
-          <a href="#" class="modal-link" target="_blank">Посетить сайт</a>
-        </div>
+  <!-- WHAT I DO -->
+  <section class="services" id="services">
+    <p class="eyebrow eyebrow--center" data-reveal data-i18n="services_eyebrow">· Чем я занимаюсь ·</p>
+
+    <div class="services__grid" data-reveal>
+      <div class="service">
+        <i class="fa-solid fa-gamepad"></i>
+        <span data-i18n="s_game">Разработка<br>Игр</span>
       </div>
+      <div class="service">
+        <i class="fa-solid fa-globe"></i>
+        <span data-i18n="s_web">Веб<br>Разработка</span>
+      </div>
+      <div class="service">
+        <i class="fa-solid fa-brain"></i>
+        <span data-i18n="s_ai">ИИ<br>Приложения</span>
+      </div>
+      <div class="service">
+        <i class="fa-solid fa-cube"></i>
+        <span>VFX &amp;<br>CGI</span>
+      </div>
+      <div class="service">
+        <i class="fa-solid fa-pen-ruler"></i>
+        <span data-i18n="s_ui">UI/UX<br>Дизайн</span>
+      </div>
+      <div class="service">
+        <i class="fa-solid fa-gear"></i>
+        <span data-i18n="s_auto">Автоматизация<br>и Системы</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGIES MARQUEE -->
+  <section class="tech">
+    <p class="eyebrow eyebrow--pad" data-i18n="tech_eyebrow">Технологии и стек</p>
+    <div class="marquee">
+      <div class="marquee__track" id="marqueeTrack">
+        <span>HTML</span><span class="dot">✦</span>
+        <span>CSS</span><span class="dot">✦</span>
+        <span>JavaScript</span><span class="dot">✦</span>
+        <span>PHP</span><span class="dot">✦</span>
+        <span>React</span><span class="dot">✦</span>
+        <span>Node.js</span><span class="dot">✦</span>
+        <span>TypeScript</span><span class="dot">✦</span>
+        <span>Angular</span><span class="dot">✦</span>
+        <span>Blender</span><span class="dot">✦</span>
+        <span>Cinema 4D</span><span class="dot">✦</span>
+        <span>Unreal Engine</span><span class="dot">✦</span>
+        <span>Unity</span><span class="dot">✦</span>
+        <span>Stable Diffusion</span><span class="dot">✦</span>
+        <span>SDXL3.0</span><span class="dot">✦</span>
+        <span>PonyXL</span><span class="dot">✦</span>
+        <span>SD1.5</span><span class="dot">✦</span>
+        <span>After Effects</span><span class="dot">✦</span>
+        <span>Premiere Pro</span><span class="dot">✦</span>
+        <span>Photoshop</span><span class="dot">✦</span>
+        <span>Illustrator</span><span class="dot">✦</span>
+        <span>Kotlin</span><span class="dot">✦</span>
+        <span>Android Studio</span><span class="dot">✦</span>
+        <span>Python</span><span class="dot">✦</span>
+        <span>Docker</span><span class="dot">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <p class="eyebrow eyebrow--center" data-reveal data-i18n="stats_eyebrow">Опыт в цифрах</p>
+    <div class="stats__grid" data-reveal>
+      <div class="stat"><span class="stat__num" data-count="15" data-suffix="+">0</span><span class="stat__label" data-i18n="st_projects">Проектов</span></div>
+      <div class="stat"><span class="stat__num" data-count="4" data-suffix="+">0</span><span class="stat__label" data-i18n="st_years">Года</span></div>
+      <div class="stat"><span class="stat__num" data-count="100" data-suffix="%">0</span><span class="stat__label" data-i18n="st_passion">Страсть</span></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <p class="eyebrow eyebrow--center" data-reveal data-i18n="contact_eyebrow">Давайте работать вместе</p>
+    <h2 class="contact__title" data-reveal data-i18n="contact_title">Давайте создадим<br>что-то потрясающее.</h2>
+
+    <div class="contact__buttons" data-reveal>
+      <a href="mailto:hello@reunionproduction.ru" class="pill"><i class="fa-solid fa-envelope"></i> Email</a>
+      <a href="https://t.me/ReunionRS" target="_blank" rel="noopener" class="pill"><i class="fa-brands fa-telegram"></i> Telegram</a>
+      <a href="https://github.com/ReunionRS" target="_blank" rel="noopener" class="pill"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://drive.google.com/drive/folders/1KHWkOZnAHzcs7ECG-6JB8nxzRbNf40qi" target="_blank" rel="noopener" class="pill"><i class="fa-brands fa-google-drive"></i> Google Drive</a>
+      <a href="https://www.linkedin.com/in/%D0%B8%D0%BB%D1%8C%D1%8F-%D1%81%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B2-ba7107424/" target="_blank" rel="noopener" class="pill"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="#home" class="pill"><i class="fa-solid fa-globe"></i> Портфолио</a>
+      <a href="Files/Rezyume_-_Smirno5v_Ilya (1).docx" class="pill"><i class="fa-solid fa-file-arrow-down"></i> Резюме (.docx)</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="#home" class="logo logo--sm">
+      <span class="logo__main">ПОРТФОЛИО</span>
+      <span class="logo__sub">Илья Смирнов</span>
+    </a>
+    <p class="footer__copy">© 2026 Илья Смирнов / Портфолио. Все права защищены.</p>
+    <div class="footer__links">
+      <a href="#home">Портфолио</a>
+      <a href="https://drive.google.com/" target="_blank" rel="noopener">Google Drive</a>
+      <a href="https://github.com/ReunionRS" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/%D0%B8%D0%BB%D1%8C%D1%8F-%D1%81%D0%BC%D0%B8%D1%80%D0%BD%D0%BE%D0%B2-ba7107424/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
+  <button class="to-top" id="toTop" aria-label="Наверх"><i class="fa-solid fa-arrow-up"></i></button>
+</footer>
 
-  <section class="skills" id="skills">
-    <div class="content">
-      <div class="title"><span>Навыки</span></div>
-      <div class="skills-details">
-        <div class="text">
-          <div class="topic"><h1>С чем я уже умею работать</h1></div>
-          <p><h1>Веб-разработка:</h1> HTML, CSS, JavaScript, PHP, React, Node.js, Typescript, Angular</p>
-          <p><h1>CGI-Графика, 3D-анимация, Игровые проекты:</h1> Blender, Cinema4D, UnrealEngine, Unity</p>
-          <p><h1>Нейронные сети:</h1> Stable Difussion, SDXL3.0, PonyXL, SD1.5</p>
-          <div class="experience">
-            <div class="num">2</div>
-            <div class="exp">
-              Года опыта <br />
-            </div>
-          </div>
-        </div>
-        <div class="boxes">
-          <div class="box">
-            <div class="topic">HTML, CSS, Javascript, PHP</div>
-            <div class="per">90%</div>
-          </div>
-          <div class="box">
-            <div class="topic">After Effects, Premiere Pro, Photoshop, Illustrator</div>
-            <div class="per">80%</div>
-          </div>
-          <div class="box">
-            <div class="topic">Typescript, React, Frameworks</div>
-            <div class="per">70%</div>
-          </div>
-          <div class="box">
-            <div class="topic">Игровая разработка на Unity, Нейросети</div>
-            <div class="per">65%</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="content">
-      <div class="title"><span>Услуги</span></div>
-      <div class="boxes">
-        <div class="box">
-          <div class="icon">
-            <i class="fas fa-desktop"></i>
-          </div>
-          <div class="topic">Веб-разработка</div>
-          <p></p>
-        </div>
-        <div class="box">
-          <div class="icon">
-            <i class="fas fa-paint-brush"></i>
-          </div>
-          <div class="topic">Графический дизайн</div>
-          <p></p>
-        </div>
-        <div class="box">
-          <div class="icon">
-            <i class='fab fa-unity'></i>
-          </div>
-          <div class="topic">CGI-Анимации</div>
-          <p></p>
-        </div>
-        <div class="box">
-          <div class="icon">
-            <i class='fa fa-gamepad'></i>
-          </div>
-          <div class="topic">Игровой дизайн</div>
-          <p></p>
-        </div>
-        <div class="box">
-          <div class="icon">
-            <i class="fas fa-camera-retro"></i>
-          </div>
-          <div class="topic">Обработка фото</div>
-          <p></p>
-        </div>
-        <div class="box">
-          <div class="icon">
-            <i class='fas fa-wind'></i>
-          </div>
-          <div class="topic">Нейросети</div>
-          <p></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="content">
-      <div class="title"><span>Контакты</span></div>
-      <div class="text">
-        <div class="topic">Нужна помощь с реализацией проекта?</div>
-        <div class="button">
-          <button>
-            <a href="https://t.me/ReunionRS">Свяжитесь со мной!</a>
-          </button>
-        </div>
-        <div class="call-icons">
-          <a href="https://www.youtube.com/@StarStudioMineSerials"><i class="fab fa-youtube"></i></a>
-          <a href="https://t.me/ReunionRS"><i class="fab fa-telegram"></i></a>
-          <a href="https://github.com/ReunionRS"><i class="fab fa-github"></i></a>
-          <a href="https://vk.com/ilusha_smirnofff"><i class="fab fa-vk"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
