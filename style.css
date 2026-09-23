@@ -280,6 +280,7 @@ button{ font-family:inherit; background:none; border:none; color:inherit; cursor
 .project__desc{ color:var(--text-dim); font-size:14px; max-width:340px; margin-bottom:18px; }
 .project__tags{ display:flex; gap:10px; flex-wrap:wrap; }
 .project__tags span{ font-size:11px; letter-spacing:.06em; text-transform:uppercase; border:1px solid var(--border-md); padding:6px 12px; color:var(--text-dim); }
+.project__links{ display:flex; gap:18px; flex-wrap:wrap; margin-top:18px; }
 
 .project__media{
   position:relative; aspect-ratio:16/10; overflow:hidden; border-radius:2px; background:var(--surface);
