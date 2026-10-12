@@ -76,7 +76,19 @@ document.addEventListener('DOMContentLoaded', () => {
       st_passion: "Страсть",
       st_ideas: "Идеи",
       contact_eyebrow: "Давайте работать вместе",
-      contact_title: "Давайте создадим<br>что-то потрясающее."
+      contact_title: "Давайте создадим<br>что-то потрясающее.",
+      form_name: "Ваше имя",
+      form_name_placeholder: "Как к вам обращаться?",
+      form_contact: "Telegram или email",
+      form_contact_placeholder: "@username или name@example.com",
+      form_subject: "Тема",
+      form_subject_placeholder: "Проект, вакансия или сотрудничество",
+      form_message: "Сообщение",
+      form_message_placeholder: "Расскажите коротко о задаче",
+      form_submit: "Отправить сообщение",
+      form_sending: "Отправляем…",
+      form_success: "Спасибо! Сообщение отправлено.",
+      form_error: "Не удалось отправить. Напишите мне в Telegram."
     },
     en: {
       nav_work: "Portfolio",
@@ -152,7 +164,19 @@ document.addEventListener('DOMContentLoaded', () => {
       st_passion: "Passion",
       st_ideas: "Ideas",
       contact_eyebrow: "Let's Work Together",
-      contact_title: "Let's create<br>something amazing."
+      contact_title: "Let's create<br>something amazing.",
+      form_name: "Your name",
+      form_name_placeholder: "How should I address you?",
+      form_contact: "Telegram or email",
+      form_contact_placeholder: "@username or name@example.com",
+      form_subject: "Subject",
+      form_subject_placeholder: "Project, vacancy, or collaboration",
+      form_message: "Message",
+      form_message_placeholder: "Tell me briefly about your request",
+      form_submit: "Send message",
+      form_sending: "Sending…",
+      form_success: "Thank you! Your message has been sent.",
+      form_error: "Could not send the message. Please contact me on Telegram."
     }
   };
 
@@ -168,6 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
         el.innerHTML = translations[lang][key];
       }
     });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (translations[lang] && translations[lang][key]) {
+        el.setAttribute('placeholder', translations[lang][key]);
+      }
+    });
 
     if (lang === 'ru') {
       langToggle.innerHTML = '<span class="lang-toggle__active">RU</span> / <span class="lang-toggle__inactive">EN</span>';
@@ -181,6 +211,55 @@ document.addEventListener('DOMContentLoaded', () => {
   langToggle.addEventListener('click', () => {
     setLanguage(currentLang === 'ru' ? 'en' : 'ru');
   });
+
+  /* ---------- Contact form ---------- */
+  const CONTACT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzqtwcmbXVIDL2B-JKVUed4ReZQLnOkexdUFQ2L8DwkwgpG3sm4nmGjRyuM56KJk5Kx/exec';
+  const contactForm = document.getElementById('contactForm');
+  const contactStatus = document.getElementById('contactFormStatus');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const submitText = submitButton.querySelector('span');
+      const formData = new FormData(contactForm);
+
+      if (formData.get('website')) return;
+      if (!CONTACT_ENDPOINT.startsWith('https://script.google.com/')) {
+        contactStatus.textContent = translations[currentLang].form_error;
+        contactStatus.className = 'contact-form__status is-error';
+        return;
+      }
+
+      formData.set('locale', currentLang);
+      formData.set('page', window.location.href);
+      formData.set('submittedAt', new Date().toISOString());
+
+      submitButton.disabled = true;
+      submitText.textContent = translations[currentLang].form_sending;
+      contactStatus.textContent = '';
+      contactStatus.className = 'contact-form__status';
+
+      try {
+        await fetch(CONTACT_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: new URLSearchParams(formData)
+        });
+        contactForm.reset();
+        contactStatus.textContent = translations[currentLang].form_success;
+        contactStatus.className = 'contact-form__status is-success';
+      } catch (error) {
+        contactStatus.textContent = translations[currentLang].form_error;
+        contactStatus.className = 'contact-form__status is-error';
+      } finally {
+        submitButton.disabled = false;
+        submitText.textContent = translations[currentLang].form_submit;
+      }
+    });
+  }
 
   /* ---------- Loader ---------- */
   const loader = document.getElementById('loader');

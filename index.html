@@ -405,6 +405,38 @@
     <p class="eyebrow eyebrow--center" data-reveal data-i18n="contact_eyebrow">Давайте работать вместе</p>
     <h2 class="contact__title" data-reveal data-i18n="contact_title">Давайте создадим<br>что-то потрясающее.</h2>
 
+    <form class="contact-form" id="contactForm" data-reveal novalidate>
+      <div class="contact-form__grid">
+        <label class="contact-form__field">
+          <span data-i18n="form_name">Ваше имя</span>
+          <input type="text" name="name" autocomplete="name" maxlength="80" required data-i18n-placeholder="form_name_placeholder" placeholder="Как к вам обращаться?" />
+        </label>
+        <label class="contact-form__field">
+          <span data-i18n="form_contact">Telegram или email</span>
+          <input type="text" name="contact" autocomplete="email" maxlength="120" required data-i18n-placeholder="form_contact_placeholder" placeholder="@username или name@example.com" />
+        </label>
+      </div>
+      <label class="contact-form__field">
+        <span data-i18n="form_subject">Тема</span>
+        <input type="text" name="subject" maxlength="120" data-i18n-placeholder="form_subject_placeholder" placeholder="Проект, вакансия или сотрудничество" />
+      </label>
+      <label class="contact-form__field">
+        <span data-i18n="form_message">Сообщение</span>
+        <textarea name="message" rows="6" maxlength="3000" required data-i18n-placeholder="form_message_placeholder" placeholder="Расскажите коротко о задаче"></textarea>
+      </label>
+      <label class="contact-form__trap" aria-hidden="true">
+        <span>Website</span>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" />
+      </label>
+      <div class="contact-form__footer">
+        <p class="contact-form__status" id="contactFormStatus" role="status" aria-live="polite"></p>
+        <button class="btn contact-form__submit" type="submit">
+          <span data-i18n="form_submit">Отправить сообщение</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </form>
+
     <div class="contact__buttons" data-reveal>
       <a href="mailto:lean1500@mail.ru" class="pill"><i class="fa-solid fa-envelope"></i> Email</a>
       <a href="https://t.me/ReunionRS" target="_blank" rel="noopener" class="pill"><i class="fa-brands fa-telegram"></i> Telegram</a>
