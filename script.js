@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
       form_submit: "Отправить сообщение",
       form_sending: "Отправляем…",
       form_success: "Спасибо! Сообщение отправлено.",
+      form_required: "Заполните имя, контакт и сообщение.",
       form_error: "Не удалось отправить. Напишите мне в Telegram."
     },
     en: {
@@ -176,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
       form_submit: "Send message",
       form_sending: "Sending…",
       form_success: "Thank you! Your message has been sent.",
+      form_required: "Please enter your name, contact details, and message.",
       form_error: "Could not send the message. Please contact me on Telegram."
     }
   };
@@ -220,7 +222,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', async event => {
       event.preventDefault();
-      if (!contactForm.reportValidity()) return;
+      if (!contactForm.checkValidity()) {
+        contactStatus.textContent = translations[currentLang].form_required;
+        contactStatus.className = 'contact-form__status is-error';
+        contactForm.reportValidity();
+        return;
+      }
 
       const submitButton = contactForm.querySelector('button[type="submit"]');
       const submitText = submitButton.querySelector('span');
